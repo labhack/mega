@@ -14,12 +14,16 @@ function selectItem(buttonID) {
 				thisLabel = document.getElementById(strItem).getElementsByClassName("buttonLabel")[0];
 				thisLabel.style.top = '';
 				thisLabel.style.bottom = '5px';
+				thisLabel = document.getElementById(strItem).getElementsByClassName("graph")[0];
+				thisLabel.style.display = 'block';
 		}
 		buttonState[buttonID] = 1;
 		nowSelect.style.backgroundColor = '#d3eebd';
 		nowSelect.style.fontSize = '4.5em';
 		thisLabel = document.getElementById(thisItem).getElementsByClassName("buttonLabel")[0];
-		thisLabel.style.top = '15%';
+		thisLabel.style.top = '20%';
+		thisLabel = document.getElementById(thisItem).getElementsByClassName("graph")[0];
+		thisLabel.style.display = 'none';
 
     var graphSettingsLarge = {
           bindto: '#fseven',
@@ -62,9 +66,7 @@ function selectItem(buttonID) {
                   padding: {top:0, right:0, bottom:0, left: 0},
  		 tick: {
 		  count: 10
-		 },
-                  text: 'Time (sec)',
-                  position: 'inner-center'
+		 }
               },
               y: {
                   show: true,
@@ -75,33 +77,47 @@ function selectItem(buttonID) {
 
     switch (buttonID) {
       case '1':
-        jQuery("div.mainGraph").html('<div id="fseven"></div><div id="feight"></div><div id="fz"></div><div id="tthree"></div><div id="tfour"></div><div id="pz"></div><div id="otwo"></div>');
+        jQuery("div.mainGraph").html('<div id="fseven"></div><div id="feight"></div><div id="fz"></div><div id="tthree"></div><div id="tfour"></div><div id="pz"></div><div id="otwo"><div class="axisLabels" id="xAxis">ELAPSED TIME (sec)</div><div class="axisLabels" id="yAxis">EEG F7 (µV)</div></div>');
 
         graphSettingsLarge.bindto = '#fseven';
         graphSettingsLarge.data.columns = [data3.Time,data3.FSeven];
         var fseven = c3.generate(graphSettingsLarge);
         break;
       case '2':
-        jQuery("div.mainGraph").html('<div id="veog"></div>');
+        jQuery("div.mainGraph").html('<div id="veog"></div><div class="axisLabels" id="xAxis">ELAPSED TIME (sec)</div><div class="axisLabels" id="yAxis">VEOG (mV)</div></div>');
 
         graphSettingsLarge.bindto = '#veog';
         graphSettingsLarge.data.columns = [data3.Time,data3.VEOG];
-        var fseven = c3.generate(graphSettingsLarge);
+        var veog = c3.generate(graphSettingsLarge);
         break;
       case '3':
-      case '4':
-      case '5':
-        jQuery("div.mainGraph").html('<p style="text-align:center;"><img src="img/graph-placeholder.jpg" width="999" height="577"></p>');
+        jQuery("div.mainGraph").html('<div id="heog"></div><div class="axisLabels" id="xAxis">ELAPSED TIME (sec)</div><div class="axisLabels" id="yAxis">HEOG (mV)</div></div>');
+
+        graphSettingsLarge.bindto = '#heog';
+        graphSettingsLarge.data.columns = [data3.Time,data3.HEOG];
+        var heog = c3.generate(graphSettingsLarge);
         break;
-      default:
-        console.log('WTF HOME ASS FRY?');
+      case '4':
+        jQuery("div.mainGraph").html('<div id="ecg"></div><div class="axisLabels" id="xAxis">ELAPSED TIME (sec)</div><div class="axisLabels" id="yAxis">ECG (mV)</div></div>');
+
+        graphSettingsLarge.bindto = '#ecg';
+        graphSettingsLarge.data.columns = [data3.Time,data3.ECG];
+        var ecg = c3.generate(graphSettingsLarge);
+        break;
+      case '5':
+        jQuery("div.mainGraph").html('<div id="resp"></div><div class="axisLabels" id="xAxis">ELAPSED TIME (sec)</div><div class="axisLabels" id="yAxis" style="left: -4%">RESPIRATION</div></div>');
+
+        graphSettingsLarge.bindto = '#resp';
+        graphSettingsLarge.data.columns = [Resp.ElapsedTime,Resp.FilteredAmp];
+	 	graphSettingsLarge.data.x = "ElapsedTime";
+        var resp = c3.generate(graphSettingsLarge);
         break;
     }
 
      // Buttons
     var graphSettingsSmall = {
           size: {
-              height: 135
+              height: 115
           },
           padding: {
               top: 0,
@@ -146,9 +162,27 @@ function selectItem(buttonID) {
               }
           }
     };
+     graphSettingsSmall.bindto = '#button1 .graph';
+     graphSettingsSmall.size.height = 135;
+     graphSettingsSmall.data.columns = [data10.Time,data10.FSeven];
+     var eegPreview = c3.generate(graphSettingsSmall);
      graphSettingsSmall.bindto = '#button2 .graph';
      graphSettingsSmall.size.height = 135;
      graphSettingsSmall.data.columns = [data10.Time,data10.VEOG];
      var veogPreview = c3.generate(graphSettingsSmall);
+     graphSettingsSmall.bindto = '#button3 .graph';
+     graphSettingsSmall.size.height = 135;
+     graphSettingsSmall.data.columns = [data10.Time,data10.HEOG];
+     var heogPreview = c3.generate(graphSettingsSmall);
+     graphSettingsSmall.bindto = '#button4 .graph';
+     graphSettingsSmall.size.height = 135;
+     graphSettingsSmall.data.columns = [data10.Time,data10.ECG];
+     var ecgPreview = c3.generate(graphSettingsSmall);
+	 graphSettingsSmall.bindto = '#button5 .graph';
+	 graphSettingsSmall.size.height = 135;
+	 graphSettingsSmall.data.x = "ElapsedTime";
+	 graphSettingsSmall.data.columns = [Resp.ElapsedTime,Resp.FilteredAmp];
+	 var respPreview = c3.generate(graphSettingsSmall);
+
 	}
 }

@@ -104,8 +104,22 @@ body {
 	font-weight: 300;
 	color: #1a1a1a;
 }
-.axislabels {
-	font-size: 18px;
+.axisLabels {
+	font-size: 14px;
+}
+#xAxis {
+	position: absolute;
+	bottom: 1%;
+	left: 45%;
+}
+#yAxis {
+	position: absolute;
+	left: -2.5%;
+	top: 40%;
+	-webkit-transform: rotate(-90deg); 
+	-moz-transform: rotate(-90deg); 
+	-o-transform: rotate(-90deg);
+	-ms-transform: rotate(-90deg); 	
 }
 .titleSpace {
 	position: absolute;
@@ -132,16 +146,17 @@ body {
 	margin: 2px auto;	
 }
 .mainGraph {
-	height: 73%;
+	height: 68%;
 	width: 96%;
 	position: absolute;
-	top: 3%;
+	top: 0;
 	left: 2%;
 	text-align: left;
 	margin-top: 3%;
+	
 }
 .navRow {
-	height: 23%;
+	height: 28%;
 	position: absolute;
 	bottom: 0;
 	width: 96%;
@@ -195,6 +210,11 @@ body {
 }
 #f7 {
 	width: 80%;
+}
+.graph {
+	width: 90%;	
+	left: 5%;
+	top: 5%;
 }
 
 
