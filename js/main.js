@@ -21,224 +21,72 @@ function selectItem(buttonID) {
 		thisLabel = document.getElementById(thisItem).getElementsByClassName("buttonLabel")[0];
 		thisLabel.style.top = '15%';
 
+    var graphSettingsLarge = {
+          bindto: '#fseven',
+          size: {
+              height: 450
+          },
+          padding: {
+              top: 0,
+              right: 0,
+              bottom: 0
+          },
+          data: {
+              x: 'Time',
+              columns: [
+                  data3.Time,
+                  data3.FSeven
+              ]
+          },
+          tooltip: {
+              show: false,
+          },
+          point: {
+              show: false
+          },
+          legend: {
+              show: false
+          },
+          grid: {
+              x: {
+		 show: false
+              },
+		y: {
+		 show: false,
+		 lines: [{value: 50}, {value: 0}, {value: -50}]
+		}
+          },
+          axis: {
+              x: {
+                  show: true,
+                  padding: {top:0, right:0, bottom:0, left: 0},
+ 		 tick: {
+		  count: 10
+		 },
+                  text: 'Time (sec)',
+                  position: 'inner-center'
+              },
+              y: {
+                  show: true,
+                  padding: {top:0, right:0, bottom:0, left: 0}
+              }
+          }
+    };
+
     switch (buttonID) {
       case '1':
         jQuery("div.mainGraph").html('<div id="fseven"></div><div id="feight"></div><div id="fz"></div><div id="tthree"></div><div id="tfour"></div><div id="pz"></div><div id="otwo"></div>');
-        var graphSettings = {
-              bindto: '#fseven',
-			  size: { height: 450},
-              padding: {
-                  top: 0,
-                  right: 0,
-                  bottom: 0
-              },
-              data: {
-                  x: 'Time',
-                  columns: [
-                      data.Time,
-                      data.FSeven
-                  ]
-              },
-              tooltip: {
-                  show: false,
-              },
-              point: {
-                  show: false
-              },
-              legend: {
-                  show: false
-              },
-              grid: {
-                  x: {
-					  show: false
-                  },
-				  y: {
-					  show: false,
-					  lines: [{value: 50}, {value: 0}, {value: -50}]
-				  }
-              },
-              axis: {
-                  x: {
-                      show: true,
-                      padding: {top:0, right:0, bottom:0, left: 0},
- 					  tick: {
-						  count: 10
-					  },
-                      text: 'Time (sec)',
-                      position: 'inner-center'
-                  },
-                  y: {
-                      show: true,
-                      padding: {top:0, right:0, bottom:0, left: 0}
-                  }
-              }
-        };
 
-        graphSettings.bindto = '#fseven';
-        graphSettings.data.columns = [data.Time,data.FSeven];
-        var fseven = c3.generate(graphSettings);
-/*
-        graphSettings.bindto = '#feight';
-        graphSettings.data.columns = [data.Time,data.FEight];
-        var feight = c3.generate(graphSettings);
-
-        graphSettings.bindto = '#fz';
-        graphSettings.data.columns = [data.Time,data.Fz];
-        var fz = c3.generate(graphSettings);
-
-        graphSettings.bindto = '#tthree';
-        graphSettings.data.columns = [data.Time,data.TThree];
-        var tthree = c3.generate(graphSettings);
-
-        graphSettings.bindto = '#pz';
-        graphSettings.data.columns = [data.Time,data.Pz];
-        var pz = c3.generate(graphSettings);
-
-        graphSettings.bindto = '#otwo';
-        graphSettings.data.columns = [data.Time,data.OTwo];
-        var otwo = c3.generate(graphSettings);
-
-        graphSettings.bindto = '#tfour';
-        graphSettings.data.columns = [data.Time,data.TFour];
-        var tfour = c3.generate(graphSettings);
-*/
-        setTimeout(function() {
-          fseven.flow({
-            columns: [data.Time,data.FSeven]
-          });
-          /*
-          feight.flow({
-            columns: [data.Time,data.FEight]
-          });
-          fz.flow({
-            columns: [data.Time,data.Fz]
-          });
-          tthree.flow({
-            columns: [data.Time,data.TThree]
-          });
-          tfour.flow({
-            columns: [data.Time,data.TFour]
-          });
-          pz.flow({
-            columns: [data.Time,data.Pz]
-          });
-          otwo.flow({
-            columns: [data.Time,data.OTwo]
-          });
-          tfour.flow({
-            columns: [data.Time,data.TFour]
-          });
-          */
-        }, 1000);
+        graphSettingsLarge.bindto = '#fseven';
+        graphSettingsLarge.data.columns = [data3.Time,data3.FSeven];
+        var fseven = c3.generate(graphSettingsLarge);
         break;
       case '2':
-        jQuery("div.mainGraph").html('<div id="fseven"></div><div id="feight"></div><div id="fz"></div><div id="tthree"></div><div id="tfour"></div><div id="pz"></div><div id="otwo"></div>');
-        var graphSettings = {
-              bindto: '#fseven',
-			  size: { height: 450},
-              padding: {
-                  top: 0,
-                  right: 0,
-                  bottom: 0
-              },
-              data: {
-                  x: 'Time',
-                  columns: [
-                      data.Time,
-                      data.FSeven
-                  ]
-              },
-              tooltip: {
-                  show: false,
-              },
-              point: {
-                  show: false
-              },
-              legend: {
-                  show: false
-              },
-              grid: {
-                  x: {
-					  show: false
-                  },
-				  y: {
-					  show: false,
-					  lines: [{value: 50}, {value: 0}, {value: -50}]
-				  }
-              },
-              axis: {
-                  x: {
-                      show: true,
-                      padding: {top:0, right:0, bottom:0, left: 0},
- 					  tick: {
-						  count: 10
-					  },
-                      text: 'Time (sec)',
-                      position: 'inner-center'
-                  },
-                  y: {
-                      show: true,
-                      padding: {top:0, right:0, bottom:0, left: 0}
-                  }
-              }
-        };
+        jQuery("div.mainGraph").html('<div id="veog"></div>');
 
-        graphSettings.bindto = '#fseven';
-        graphSettings.data.columns = [data.Time,data.FSeven];
-        var fseven = c3.generate(graphSettings);
-/*
-        graphSettings.bindto = '#feight';
-        graphSettings.data.columns = [data.Time,data.FEight];
-        var feight = c3.generate(graphSettings);
-
-        graphSettings.bindto = '#fz';
-        graphSettings.data.columns = [data.Time,data.Fz];
-        var fz = c3.generate(graphSettings);
-
-        graphSettings.bindto = '#tthree';
-        graphSettings.data.columns = [data.Time,data.TThree];
-        var tthree = c3.generate(graphSettings);
-
-        graphSettings.bindto = '#pz';
-        graphSettings.data.columns = [data.Time,data.Pz];
-        var pz = c3.generate(graphSettings);
-
-        graphSettings.bindto = '#otwo';
-        graphSettings.data.columns = [data.Time,data.OTwo];
-        var otwo = c3.generate(graphSettings);
-
-        graphSettings.bindto = '#tfour';
-        graphSettings.data.columns = [data.Time,data.TFour];
-        var tfour = c3.generate(graphSettings);
-*/
-        setTimeout(function() {
-          fseven.flow({
-            columns: [data.Time,data.FSeven]
-          });
-          /*
-          feight.flow({
-            columns: [data.Time,data.FEight]
-          });
-          fz.flow({
-            columns: [data.Time,data.Fz]
-          });
-          tthree.flow({
-            columns: [data.Time,data.TThree]
-          });
-          tfour.flow({
-            columns: [data.Time,data.TFour]
-          });
-          pz.flow({
-            columns: [data.Time,data.Pz]
-          });
-          otwo.flow({
-            columns: [data.Time,data.OTwo]
-          });
-          tfour.flow({
-            columns: [data.Time,data.TFour]
-          });
-          */
-        }, 1000);
+        graphSettingsLarge.bindto = '#veog';
+        graphSettingsLarge.data.columns = [data3.Time,data3.VEOG];
+        var fseven = c3.generate(graphSettingsLarge);
         break;
       case '3':
       case '4':
@@ -250,5 +98,57 @@ function selectItem(buttonID) {
         break;
     }
 
+     // Buttons
+    var graphSettingsSmall = {
+          size: {
+              height: 135
+          },
+          padding: {
+              top: 0,
+              right: 0,
+              bottom: 0
+          },
+          data: {
+              x: 'Time'
+          },
+          tooltip: {
+              show: false,
+          },
+          point: {
+              show: false
+          },
+          legend: {
+              show: false
+          },
+          grid: {
+              x: {
+            		 show: false
+              },
+          		y: {
+            		 show: false,
+            		 lines: [{value: 50}, {value: 0}, {value: -50}]
+		          }
+          },
+          axis: {
+              x: {
+                  show: false,
+                  padding: {top:0, right:0, bottom:0, left: 0},
+ 		              tick: {
+                      show: false
+		              }
+              },
+              y: {
+                  show: false,
+                  padding: {top:0, right:0, bottom:0, left: 0},
+ 		              tick: {
+                      show: false
+		              }
+              }
+          }
+    };
+     graphSettingsSmall.bindto = '#button2 .graph';
+     graphSettingsSmall.size.height = 135;
+     graphSettingsSmall.data.columns = [data10.Time,data10.VEOG];
+     var veogPreview = c3.generate(graphSettingsSmall);
 	}
 }
