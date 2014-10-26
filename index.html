@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>AFRL Test Data Monitor</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+		
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+	<div class="titleSpace">
+			<img src="img/logo-AFRL.jpg" alt="AFRL logo">
+			<h1 id="titleMain">Human Performance Study</h1>
+			<p id="meta1">Subject: 004</p>
+			<p id="meta2">Test: 008</p>
+			<p id="time">10-26-2014, 13:45</p>
+		</div>
+		<div class="mainGraph">
+        	<p style="text-align:center;"><img src="img/graph-placeholder.jpg" width="999" height="577"></p>
+		</div>
+	<div class="navRow">
+			<div class="sectionLabel">Select</div>
+			<div class="button" id="button1" onclick="selectItem('1');">
+				<div class="buttonLabel">EEG</div>
+			</div>
+			<div class="button" id="button2" onclick="selectItem('2');">
+				<div class="buttonLabel">VEOG</div>
+			</div>
+			<div class="button" id="button3" onclick="selectItem('3');">
+				<div class="buttonLabel">HEOG</div>
+			</div>
+			<div class="button" id="button4" onclick="selectItem('4');">
+				<div class="buttonLabel">ECG</div>
+			</div>
+			<div class="button" id="button5" onclick="selectItem('5');">
+				<div class="buttonLabel">RESP</div>
+			</div>
+		</div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+	<script>
+			$(document).ready(function () {
+    			selectItem('1');
+			});
+		</script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+    </body>
+</html>
