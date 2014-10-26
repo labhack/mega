@@ -109,7 +109,7 @@ body {
 }
 #xAxis {
 	position: absolute;
-	bottom: 1%;
+	top: 455px;
 	left: 45%;
 }
 #yAxis {
