@@ -109,12 +109,14 @@ body {
 }
 .titleSpace {
 	position: absolute;
-	right: 0;
+	right: 2%;
 	width: 20%;
 	background-color: white;
 	text-align:center;
 	z-index: 5;	
 	padding-bottom: 20px;
+	-webkit-box-shadow: 0 1px 6px 0 rgba(0,0,0,.1);
+	box-shadow: 0 1px 6px 0 rgba(0,0,0,.1);
 }
 .titleSpace img {
 	margin-top: 20px;	
@@ -135,6 +137,8 @@ body {
 	position: absolute;
 	top: 3%;
 	left: 2%;
+	text-align: left;
+	margin-top: 3%;
 }
 .navRow {
 	height: 23%;
@@ -189,7 +193,9 @@ body {
 	text-transform: uppercase;
 	letter-spacing: 2px;	
 }
-
+#f7 {
+	width: 80%;
+}
 
 
 /* ==========================================================================

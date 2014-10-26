@@ -1,11 +1,12 @@
 /*-- Chart --*/
 
 .c3 svg {
-  font: 10px sans-serif;
+  font-size: 18px;
+  font-weight: 300;
 }
 .c3 path, .c3 line {
   fill: none;
-  stroke: #000;
+  stroke: #ccc;
 }
 .c3 text {
   -webkit-user-select: none;
@@ -50,7 +51,7 @@
 /*-- Grid --*/
 
 .c3-grid line {
-  stroke: #aaa;
+  stroke: #ccc;
 }
 .c3-grid text {
   fill: #aaa;
