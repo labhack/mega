@@ -184,5 +184,62 @@ function selectItem(buttonID) {
 	 graphSettingsSmall.data.columns = [Resp.ElapsedTime,Resp.FilteredAmp];
 	 var respPreview = c3.generate(graphSettingsSmall);
 
+   setTimeout(function() {
+     var temp = {};
+     temp.ElapsedTime = RespFULL.ElapsedTime.slice(18,108);
+     temp.ElapsedTime.unshift("ElapsedTime");
+     temp.FilteredAmp = RespFULL.FilteredAmp.slice(18,108);
+     temp.FilteredAmp.unshift("FilteredAmp");
+     respPreview.flow({
+       columns: [
+        temp.ElapsedTime,
+        temp.FilteredAmp
+       ],
+       duration: 50
+     });
+   }, 1000);
+   setTimeout(function() {
+     var temp = {};
+     temp.ElapsedTime = RespFULL.ElapsedTime.slice(36,126);
+     temp.ElapsedTime.unshift("ElapsedTime");
+     temp.FilteredAmp = RespFULL.FilteredAmp.slice(36,126);
+     temp.FilteredAmp.unshift("FilteredAmp");
+     respPreview.flow({
+       columns: [
+        temp.ElapsedTime,
+        temp.FilteredAmp
+       ],
+       duration: 50
+     });
+     resp.flow({
+       columns: [
+        temp.ElapsedTime,
+        temp.FilteredAmp
+       ],
+       duration: 50
+     });
+   }, 2000);
+   setTimeout(function() {
+     var temp = {};
+     temp.ElapsedTime = RespFULL.ElapsedTime.slice(54,144);
+     temp.ElapsedTime.unshift("ElapsedTime");
+     temp.FilteredAmp = RespFULL.FilteredAmp.slice(54,144);
+     temp.FilteredAmp.unshift("FilteredAmp");
+     respPreview.flow({
+       columns: [
+        temp.ElapsedTime,
+        temp.FilteredAmp
+       ],
+       duration: 50
+     });
+     resp.flow({
+       columns: [
+        temp.ElapsedTime,
+        temp.FilteredAmp
+       ],
+       duration: 50
+     });
+   }, 3000);
+
 	}
 }
